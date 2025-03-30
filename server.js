@@ -13,6 +13,11 @@ app.use(bodyParser.json());
 // Initialize the GoogleGenAI client with your API key from the .env file
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
+// Simple GET endpoint to check if the server is running
+app.get('/', (req, res) => {
+  res.send('Welcome to the Government Schemes API!');
+});
+
 // POST endpoint to receive user data and get recommendations from Gemini
 app.post('/get-schemes', async (req, res) => {
   try {
